@@ -13,6 +13,7 @@ type VditoQcow2JobStruct struct {
 	Name         string    `json:"name"`
 	Version      string    `json:"version"`
 	SourceUrl    string    `json:"url"`
+	ChecksumUrl  string    `json:"checksum"`
 	CurrentState string    `json:"state"`
 	Progress     int       `json:"progress"`
 	IsCompleted  bool      `json:"completed"`
@@ -24,12 +25,13 @@ type VditoQcow2JobStruct struct {
 	logger *zap.Logger
 }
 
-func NewVditoQcow2Job(name, version, sourceUrl string, logger *zap.Logger) *VditoQcow2JobStruct {
+func NewVditoQcow2Job(name, version, sourceUrl, checksumUrl string, logger *zap.Logger) *VditoQcow2JobStruct {
 	return &VditoQcow2JobStruct{
 		Id:           uuid.New(),
 		Name:         name,
 		Version:      version,
 		SourceUrl:    sourceUrl,
+		ChecksumUrl:  checksumUrl,
 		CurrentState: "initialized",
 		logger:       logger,
 	}

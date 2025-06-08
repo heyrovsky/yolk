@@ -11,11 +11,16 @@ import (
 	"github.com/heyrovsky/yolk/common/utils"
 )
 
-func (v *VditoQcow2JobStruct) VdiImageDownloader(ctx context.Context, destPath string) error {
+func (v *VditoQcow2JobStruct) VdiDownloader(ctx context.Context, destPath string, isChecksum bool) error {
 	v.updateState("downloader:resolving")
 	v.StartTime = time.Now()
 
-	req, err := http.NewRequestWithContext(ctx, "GET", v.SourceUrl, nil)
+	req, err := http.NewRequestWithContext(ctx, "GET", func() string {
+		if isChecksum {
+			return v.ChecksumUrl
+		}
+		return v.SourceUrl
+	}(), nil) // dont ask me why but i just wanted ternary operator
 	if err != nil {
 		return v.fail("downloader:error", fmt.Errorf("create request: %w", err))
 	}
