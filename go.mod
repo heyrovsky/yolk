@@ -3,7 +3,6 @@ module github.com/heyrovsky/yolk
 go 1.24.3
 
 require (
-	github.com/google/uuid v1.6.0
 	github.com/mmcdole/gofeed v1.3.0
 	go.uber.org/zap v1.27.0
 )
@@ -16,6 +15,6 @@ require (
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	go.uber.org/multierr v1.10.0 // indirect
-	golang.org/x/net v0.4.0 // indirect
-	golang.org/x/text v0.5.0 // indirect
+	golang.org/x/net v0.38.0 // indirect
+	golang.org/x/text v0.23.0 // indirect
 )
