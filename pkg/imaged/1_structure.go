@@ -29,11 +29,11 @@ func NewQcow2ImageDaemon(name, version, link string) *Qcow2Imaged {
 }
 
 func (q *Qcow2Imaged) Exec() error {
-	if err := os.MkdirAll(q.GetBaseDirectory(), 0755); err != nil {
+	if err := os.MkdirAll(filepath.Dir(q.Get7zFileLocation()), 0755); err != nil {
 		return fmt.Errorf("failed to create archive directory: %w", err)
 	}
 
-	if err := os.MkdirAll(filepath.Base(q.GetQcow2FileLocation()), 0755); err != nil {
+	if err := os.MkdirAll(filepath.Dir(q.GetQcow2FileLocation()), 0755); err != nil {
 		return fmt.Errorf("failed to create parent directory: %w", err)
 	}
 

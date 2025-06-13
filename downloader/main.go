@@ -34,8 +34,8 @@ import (
 func main() {
 	d := imaged.NewQcow2ImageDaemon(
 		"ubuntu_server",
-		"25.04",
-		"https://sourceforge.net/projects/osboxes/files/v/vm/59-Uu--svr/25.04/64bit.7z/download",
+		"14.0.4",
+		"https://sourceforge.net/projects/osboxes/files/v/vm/59-Uu--svr/14.04.4/1404464.7z/download",
 	)
 
 	done := make(chan error)

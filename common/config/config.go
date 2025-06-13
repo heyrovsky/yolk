@@ -8,4 +8,5 @@ import (
 var (
 	BASE_ARCHIVE_LOCATION = os.TempDir()
 	BASE_IMAGE_LOCATION   = "/opt"
+	BASE_CONFIG_APP       = "qcow2imaged"
 )
